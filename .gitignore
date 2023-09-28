@@ -1,0 +1,5 @@
+send_to_pal.sh
+upload_fip.sh
+*.swp
+*.out
+*.o
