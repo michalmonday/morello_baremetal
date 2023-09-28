@@ -100,7 +100,7 @@ SECTIONS
     *(.data*)
     *(.gnu.linkonce.d.*)
     . = ALIGN(8);
-    PROVIDE( __global_pointer$ = . + 0x800 );
+    /* PROVIDE( __global_pointer$ = . + 0x800 ); */
     *(.sdata .sdata.* .sdata2.*)
     *(.gnu.linkonce.s.*)
   }
@@ -115,11 +115,13 @@ SECTIONS
   } /* static local variables */
   .bss : ALIGN(8) { 
     BSS_START = .;
+    __bss_start__ = BSS_START;
     *(.bss) 
     *(.bss*)
     *(COMMON)
     . = ALIGN(8);
     BSS_END = .;
+    __bss_end__ = BSS_END;
   } /* global variables */
 
   .debug : ALIGN(8) { 
@@ -129,4 +131,5 @@ SECTIONS
   HEAP_START = ALIGN(8);
   
   _end = .;
+  __end__ = _end;
 }
