@@ -22,8 +22,8 @@ int main(void) {
     init();
     __libc_init_array();
 
-    // setbuf(stdout, NULL);
-    // setbuf(stdin, NULL);
+    setbuf(stdout, NULL);
+    setbuf(stdin, NULL);
 
     putchar('a');
     printf("Hello World!\n");
